@@ -222,7 +222,13 @@ while True:
                 last_time = time.time()
 
     cv2.imshow('Jarvis AI', img)
-    if cv2.waitKey(1) & 0xFF == ord('q'): break
+        # 4. Keyboard Controls
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('q'):
+        break
+    elif key == ord('n'): # <--- ВОТ ОНА! Вернули кнопку N
+        show_nose = not show_nose
+        print(f"Nose filter: {show_nose}")
 
 voice.is_running = False
 cap.capture.release()
