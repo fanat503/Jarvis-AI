@@ -1,9 +1,9 @@
-# Jarvis AI Assistant (v0.1) 
+# Jarvis AI Assistant (v0.3) 
 
 This is a computer vision project powered by **OpenCV** and **MediaPipe**.
 The assistant can track faces, apply filters (nose mask) and take selfies using hand gestures.
 
-## Features 🌟
+## Features 
 - **Face Tracking**: Real-time face detection with a clown nose filter.
 - **Hand Gestures**: Show a "pinch" gesture (thumb + index finger) to take a selfie.
 - **Multithreading**: Smooth video capture without lag.
