@@ -8,6 +8,7 @@ import subprocess
 import time
 import numpy as np
 import config
+import pyautogui
 
 # --- AUDIO ENGINE ---
 engine = pyttsx3.init()
@@ -151,3 +152,28 @@ def load_nose_asset():
     else:
         img = remove_white_bg(img)
     return img
+
+
+def move_mouse_with_nose(nose_x, nose_y, screen_w, screen_h, cam_w, cam_h):
+    """
+    Moves mouse cursor based on nose position using linear mapping.
+    """
+    try:
+        # 1. Map Coordinates (Proportion)
+        # Отражаем X (cam_w - nose_x), потому что мышку двигать зеркально неудобно
+        # Если ты используешь flip в камере, то (cam_w - nose_x) не нужно.
+        # Давай использовать чистую математику:
+        
+        target_x = int((nose_x / cam_w) * screen_w)
+        target_y = int((nose_y / cam_h) * screen_h)
+        
+        # 2. Safety Bounds (Чтобы мышка не улетела в бесконечность)
+        target_x = max(0, min(screen_w, target_x))
+        target_y = max(0, min(screen_h, target_y))
+        
+        # 3. Move (Instantly)
+        # _pause=False отключает встроенную задержку pyautogui (для скорости)
+        pyautogui.moveTo(target_x, target_y, _pause=False)
+        
+    except Exception:
+        pass    
