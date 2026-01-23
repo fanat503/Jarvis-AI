@@ -1,1 +1,25 @@
+# --- Python Trash ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Virtual Environment ---
 venv/
+env/
+.venv/
+/venv
+
+# --- Media / Logs ---
+*.jpg
+*.png
+*.mp4
+*.log
+
+# --- VS Code Settings ---
+.vscode/
+
+# --- Exceptions ---
+!nose.png
+!README.md
+!requirements.txt
